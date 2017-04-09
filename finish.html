@@ -1,0 +1,17 @@
+<div class="userInfo" ng-show="ordCnfInfo.orderId.length>0">
+<div class="heading">Thank You</div>
+<div class="summaryMenu">
+<p>Thank you {{ordCnfInfo.fName}} {{ordCnfInfo.lName}}</p>
+<p>We have received your order ID {{ordCnfInfo.orderId}} for Rs.{{ordCnfInfo.totalAmount}}</p>
+<p>We will deliver your order to the following address:</p>
+<p>{{ordCnfInfo.fAddr}}</p>
+<p>{{ordCnfInfo.sAddr}}</p>
+<p>{{ordCnfInfo.city}}</p>
+<p>{{ordCnfInfo.state}}</p>
+<p>{{ordCnfInfo.pin}}</p>
+<p>{{ordCnfInfo.phNo}}</p>
+</div>
+</div>
+		<div class="orderConfBtn btnEnable" ng-show="ordCnfInfo.orderId.length>0" ng-click="validateAndRedirect('/')">Go back to Home</div>
+		
+		
