@@ -1,0 +1,4 @@
+Constraints:
+1. Form fields except pin and phone number would allow only alphabets. No spaxess, commas or any other special characters are allowed.
+2. Confirm Order button in the Step 2 will be clicked if the form fields are valid as per the patterns.
+3. All the form fields are required.
