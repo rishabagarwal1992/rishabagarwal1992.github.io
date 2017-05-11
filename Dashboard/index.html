@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inverter Efficiency Dashboard</title>
+	<link href="./Styles/home.css" type="text/css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="./Scripts/home.js" type="text/javascript"></script>
+</head>
+<body data-ng-app="iotApp" data-ng-controller="ViewController">
+	<div class="Overlay" data-ng-show="showPopup" data-ng-click="showPopup=false"></div>
+	<div class="Container">
+	<h2>Inverter Monitoring Dashboard</h2>
+		<div class="FilterPanel">
+			<div class="FilterDropdown">
+			<label for="connection">Connection Status</label>
+				<select name="connection" data-ng-model="connStatus" data-ng-change="updateView()">
+				<option value=''>Select a status</option>
+                    <option data-ng-repeat="status in connectionStatus track by $index" value="{{status | capitalize}}">{{status | capitalize}}</option>
+				</select>
+			</div>
+			<div class="FilterDropdown">
+			<label for="solarGroup">Solar Group</label>
+				<select name="solarGroup" data-ng-model="solarGroup"  data-ng-change="updateView()">
+				<option value=''>Select a solar group</option>
+                    <option data-ng-repeat="solarGrp in solarGrps track by $index" value="{{solarGrp}}">{{solarGrp}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="PrimaryView">
+			<div class="Grid">
+				<div class="GridRowHeader">
+					<div class="GridCol">Inverter Name</div>
+					<div class="GridCol">Power</div>
+					<div class="GridCol">Generation</div>
+					<div class="GridCol">Connection Status</div>
+					<div class="GridCol">Orientation</div>
+					<div class="GridCol">Solar Group</div>
+				</div>
+				<div class="Gridbody">
+				<div class="GridRowItem" data-ng-repeat="inverter in processedData">
+					<div class="GridCol InverterPopup" data-ng-click="showSecondaryView(inverter)">{{inverter.name}}</div>
+					<div class="GridCol Power">{{inverter.power | number:1}}</div>
+					<div class="GridCol Generation">{{inverter.generation | number:1}}</div>
+					<div class="GridCol Kpi" data-ng-class="{Connected:inverter.connected==='connected',Disconnected:inverter.connected==='disconnected',Alarms:inverter.connected==='alarms',Unknown:inverter.connected==='unknown'}">{{inverter.connected}}</div>
+					<div class="GridCol Orientation">{{inverter.orientation}}</div>
+					<div class="GridCol SolarGroup">{{inverter.solar_group}}</div>
+				</div>
+</div>
+			</div>
+		</div>
+		<div class="SecondaryView" data-ng-show="showPopup">
+		<h1>Details for inverter: {{currentInverter.name}}</h1>
+		<div class="SecondaryGrid">
+			<p><span>Name:</span> {{currentInverter.name}}</p>
+			<p><span>Generation:</span> {{currentInverter.generation | number:1}}</p>
+			<p><span>Power:</span> {{currentInverter.power | number:1}}</p>
+			<p><span>Connection Status:</span> <span class ="ConnectionPopupText" data-ng-class="{ConnectedPopup:currentInverter.connected==='connected',DisconnectedPopup:currentInverter.connected==='disconnected',AlarmsPopup:currentInverter.connected==='alarms'}">{{currentInverter.connected}}</span></p>
+			<p><span>Orientation:</span> {{currentInverter.orientation}}</p>
+			<p><span>Solar Group:</span> {{currentInverter.solar_group}}</p>
+			<p><span>Capacity:</span> {{currentInverter.capacity | number}}</p>
+			<p><span>Inside Temperature:</span> {{currentInverter.inside_temperature | number:1}}</p>
+			<p><span>Total Yield:</span> {{currentInverter.total_yield |number}}</p>
+			<p><span>Total Ajbs:</span> {{currentInverter.total_ajbs | number}}</p>
+			<p><span>Disconnected Ajbs:</span> {{currentInverter.disconnected_ajbs | number}}</p>
+			<p><span>Last 3 errors:</span> {{currentInverter.last_three_errors.toString()}}</p>
+			<p><span>Last Status:</span> {{currentInverter.last_inverter_status.toString()}}</p>
+</div>
+		</div>
+	</div>
+</body>
+
+</html>

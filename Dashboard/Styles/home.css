@@ -1,0 +1,142 @@
+body{
+	font-family:'Segoe UI Light';
+	margin:0;
+	padding: 0;
+}
+.FilterDropdown select {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eaeaea;
+}
+.FilterDropdown {
+    width: 200px;
+    height: 30px;
+    float: left;
+    margin-right: 20px;
+}
+.FilterDropdown:last-child{
+	margin-right:0;
+}
+.Container{
+	width:1200px;
+	margin:0 auto;
+}
+.PrimaryView{
+	clear:both;
+}
+.GridRowHeader{
+	background: #505050;
+}
+.GridRowHeader,.GridRowItem{
+	height:30px;
+	font-size:14px;
+}
+.GridCol{
+	width:200px;
+	box-sizing: border-box;
+	padding:5px;
+	height:30px;
+	float: left;
+}
+.GridRowItem .GridCol{
+	width:197px;
+}
+.FilterPanel{
+	height:80px;
+	float:right;
+}
+.GridRowHeader{
+	color:#fff;
+	font-weight:400;
+}
+.Connected{
+	background-color:#7ab839;
+}
+.Disconnected{
+	background-color: #db001e;
+}
+.Alarms{
+	background-color: #f4b439;
+}
+.Unknown{
+	background-color:black;
+}
+.Kpi{
+	color:#fff;
+	border-left:9px solid #fff;
+	text-transform: capitalize;
+}
+.GridRowItem{
+		border-bottom:1px solid #eaeaea;
+}
+.Gridbody{
+	overflow: auto;
+	height:400px;
+}
+.SolarGroup{
+border-left:13px solid #fff;
+}
+.Orientation{
+border-left:11px solid #fff;
+}
+.Generation{
+border-left:5px solid #fff;
+}
+.Power{
+	border-left:2px solid #fff;
+}
+.Overlay{
+	    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+}.InverterPopup{
+	cursor: pointer;
+	color:deepskyblue;
+}
+.SecondaryView{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    background-color: #fafafa;
+    width: 500px;
+    padding: 20px;
+    height: 370px;
+}
+.SecondaryGrid{
+	height:300px;
+	overflow: auto;
+}
+p{
+	line-height: 20px;
+	font-size: 16px;
+}
+p span{
+	font-weight:bold;
+	width:200px;
+	display: inline-block;
+}
+.ConnectionPopupText{
+	text-transform: capitalize;
+}
+.ConnectedPopup{
+	color:#7ab839;
+}
+.DisconnectedPopup{
+	color: #db001e;
+}
+.AlarmsPopup{
+	color: #f4b439;
+}
+h1{
+	margin-top:0;
+}
+Select{
+	font-family: 'Segoe UI Light';
+}
+option{
+	font-weight: bold;
+	font-size:14px;
+}
